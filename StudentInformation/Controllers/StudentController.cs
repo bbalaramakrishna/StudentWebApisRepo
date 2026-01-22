@@ -3,7 +3,7 @@ using StudentInformation.Dto;
 using StudentInformation.Interface;
 using StudentInformation.Logic;
 
-namespace StudentInformation.controller
+namespace StudentInformation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
