@@ -18,12 +18,19 @@ namespace StudentInformation.Logic
         public List<studentdto> studentdetails(int id)
 
         {
-            IDbConnection conn = new SqlConnection(connectionstring);
-            conn.Open();
-            var dto = conn.Query<studentdto>("select * from studentinformation where Id = @idval", new { idval = id });
-            conn.Close();
-            return dto.ToList();
-
+            try
+            {
+                IDbConnection conn = new SqlConnection(connectionstring);
+                conn.Open();
+                var dto = conn.Query<studentdto>("select * from studentinformation where Id = @idval", new { idval = id });
+                conn.Close();
+                return dto.ToList();
+            }
+            catch(Exception e)
+            {
+                List<studentdto> obj = new List<studentdto>();
+                return obj;
+            }
 
 
 
